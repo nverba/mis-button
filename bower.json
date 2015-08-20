@@ -1,0 +1,23 @@
+{
+  "name": "mis-button",
+  "version": "1.0.0",
+  "authors": [
+    "nverba <distantstate@gmail.com>"
+  ],
+  "description": "Make it Social popup launcher",
+  "main": "dist/mis-button.min.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "makeitsocial.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
