@@ -1,132 +1,109 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
-#MiS_MasK {
-  background-color: #444546;
-  /*background-color: rgba(68, 69, 70, 0.65);*/
-  background-color: rgba(56, 56, 56, 0.45);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  right: 0;
-  padding: 0;
-  z-index: 20000; }
+.makeitsocial-button {
+  background: rgba(158, 158, 158, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border: none;
+  border-radius: 2px;
+  position: relative;
+  height: 28px;
+  padding: 0 8px;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 28px;
+  vertical-align: middle;
+  min-width: 101px;
+  width: 101px;
+  background-image: url(https://makeitsocial.com/media/button/makeitsocialbutton2.png);
+  background-size: 117px;
+  background-position: 0 0;
+  background-repeat: no-repeat; }
 
-.MiS_PopUp {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  margin: 20px 0 0 -200px;
+.makeitsocial-button:active {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  background-color: rgba(158, 158, 158, 0.4); }
+
+.makeitsocial-button:focus:not(:active) {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  background-color: rgba(158, 158, 158, 0.4); }
+
+.misCover {
+  z-index: 2000;
+  background-color: #fff;
   width: 400px;
-  max-width: 400px;
-  height: 485px;
-  max-height: 485px;
-  background: #fff;
-  background-size: 40px;
-  border: 0;
-  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.8);
-  overflow-x: hidden;
-  z-index: 20001; }
+  height: 450px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 1px solid #D1DBE0; }
 
-.MiS_PopUp.misMini {
-  visibility: hidden;
-  opacity: 0;
-  max-height: 50px;
-  max-width: 318px;
-  -webkit-transition: visibility 0s linear 0.1s, opacity 0.1s linear, max-height 0.1s linear, max-width 0.1s linear;
-          transition: visibility 0s linear 0.1s, opacity 0.1s linear, max-height 0.1s linear, max-width 0.1s linear; }
+.misSpinner {
+  width: 100px;
+  height: 100px;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center; }
 
 .misFrame {
-  background: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.misFrame .loadingText, .mis-faq {
   position: absolute;
-  left: 50%;
-  top: 10px;
-  margin: 20px 0 0 -200px;
-  width: 400px;
-  height: 36px;
-  z-index: 20002; }
+  display: block;
+  bottom: -50px;
+  text-align: center;
+  width: 100%;
+  font-weight: 300; }
 
-.misFrame.misMini {
-  width: 220px;
-  background: #ebeff2;
-  top: inherit;
-  left: inherit;
-  bottom: 0;
-  right: 10px;
-  position: fixed;
-  cursor: auto;
-  border: 1px solid #d3e0e7;
-  border-bottom: none;
-  z-index: 99999999; }
+.mis-faq {
+  bottom: -100px; }
 
-.misFrame .misButton {
-  background: none;
-  width: 20px;
-  height: 20px;
+.circle1, .circle2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #F18E4A;
+  opacity: 0.7;
   position: absolute;
-  top: 8px;
-  left: 6px;
-  border-radius: 10px;
-  vertical-align: middle;
-  background-image: url(https://button.makeitsocial.com/glyphsFrame-01.jpg);
-  background-size: 60px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  z-index: 20003;
-  cursor: pointer; }
+  top: 0;
+  left: 0;
+  -webkit-animation: bounce 2s infinite ease-in-out;
+          animation: bounce 2s infinite ease-in-out; }
 
-.misFrame #misClose {
-  display: none;
-  margin-left: 25px; }
+.circle2 {
+  -webkit-animation-delay: -1.0s;
+          animation-delay: -1.0s; }
 
-.misFrame.misMini #misClose {
-  display: none; }
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7); }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
-.misFrame #misClose:hover {
-  background-position: 0 -20px; }
-
-.misFrame #misMin {
-  background-position: -20px 0; }
-
-.misFrame.misMini #misMin {
-  display: none; }
-
-.misFrame #misMin:hover {
-  background-position: -20px -20px; }
-
-.misFrame #misMax {
-  margin-left: 50px;
-  background-position: -40px 0;
-  display: none;
-  margin: 0; }
-
-.misFrame.misMini #misMax {
-  display: block; }
-
-.misFrame.misMini:hover #misMax {
-  background-position: -40px -20px; }
-
-.misFrame #misDragdiv {
-  margin: 0 auto;
-  background: none;
-  width: 80%;
-  height: 36px;
-  display: block; }
-
-.misFrame.misMini #misDragdiv {
-  background: url(https://button.makeitsocial.com/logo24r.png);
-  background-size: 24px;
-  background-repeat: no-repeat;
-  background-position: center center; }
-
-.misFrame.misMini #misTitle {
-  padding: 0 0 0 33px; }
-
-/*-- Specific to MiS Spinner -- */
-.misFrame .misSpinner {
-  width: 85px;
-  height: 85px;
-  position: relative; }
+@keyframes bounce {
+  0%, 100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7); }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
 
 .misFrame .misSpinner .mis-logo {
   background: transparent;
@@ -140,414 +117,29 @@
   background-position: center center;
   background-repeat: no-repeat; }
 
-.misFrame .misSpinner .circle1, .misSpinner .circle2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 200px;
-  background-color: #F18E4A;
-  opacity: 0.7;
+.MiS_PopUp {
   position: absolute;
+  border: 0;
   top: 0;
   left: 0;
-  -webkit-animation: bounce 2s infinite ease-in-out;
-  animation: bounce 2s infinite ease-in-out; }
-
-.misFrame .misSpinner .circle2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s; }
-
-@-webkit-keyframes bounce {
-  0%, 100% {
-    -webkit-transform: scale(0.7); }
-  50% {
-    -webkit-transform: scale(1); } }
-
-@keyframes bounce {
-  0%, 100% {
-    transform: scale(0.7);
-    -webkit-transform: scale(0.7); }
-  50% {
-    transform: scale(1);
-    -webkit-transform: scale(1); } }
-
-.misFrame .loadingText {
-  position: absolute;
-  bottom: -50px;
-  text-align: center;
   width: 100%;
-  font-weight: 300; }
+  height: 100%; }
 
-.misFrame img {
-  width: 335px;
-  position: absolute;
-  bottom: -160px;
-  left: 50%;
-  max-width: 335px;
-  margin-left: -167px; }
-
-.misFrame .mis-faq {
-  position: absolute;
-  bottom: -185px;
-  left: 50%;
-  margin-left: -45px;
-  text-align: center;
-  width: 90px;
-  font-size: 12px;
-  color: #84929B; }
-
-.mis-faq {
-  z-index: 20005; }
-
-.makeitsocial-button.button2 {
-  background: transparent url(https://button.makeitsocial.com/button_2.jpg) 0 0 no-repeat !important;
-  background-size: 118px !important; }
-
-.ui-tooltip {
-  padding: 8px;
-  position: absolute;
-  z-index: 9999;
-  max-width: 300px; }
-
-body .ui-tooltip {
-  border-width: 2px; }
-
-/* Soon to be deprecated */
-.makeitsocial-button.moneyback {
-  background: transparent url(https://button.makeitsocial.com/button-gmb.jpg) 0 0 no-repeat;
-  background-size: 162px;
-  width: 162px;
-  height: 54px; }
-
-.makeitsocial-button.makeitsocial-small.moneyback {
-  background: transparent url(https://button.makeitsocial.com/button-gmb-s.png) 0 0 no-repeat;
-  background-size: 94px;
-  width: 94px;
-  height: 30px;
-  max-height: 30px; }
-
-/* End of Soon to be deprecated */
-.makeitsocial-button.moneyback:hover {
-  opacity: 0.95; }
-
-.makeitsocial-button.mis-tooltip.moneyback:hover::after {
-  display: none !important; }
-
-.makeitsocial-button {
-  min-width: 117px;
-  border: none !important;
-  width: 117px;
-  position: inherit !important;
-  max-width: inherit !important; }
-
-.makeitsocial-button.mis-tooltip {
-  display: inline-block;
-  zoom: 1;
-  color: #000;
-  text-align: left;
-  height: 38px;
-  box-sizing: border-box;
-  overflow: hidden;
-  padding: 0;
-  cursor: pointer; }
-
-.button-tip {
-  display: none; }
-
-.makeitsocial-button.mis-tooltip:after {
-  content: '';
-  width: 117px;
-  position: absolute;
-  font-family: sans-serif;
-  font-size: 9px;
-  text-transform: uppercase;
-  font-weight: normal;
-  text-align: left;
-  margin-top: 39px;
-  background: url("https://button.makeitsocial.com/triangle.png") no-repeat left top;
-  background-size: 118px;
-  padding: 0;
-  height: 54px;
-  z-index: 19998;
-  display: none; }
-
-.makeitsocial-button.button2.mis-tooltip:after {
-  background: url("https://button.makeitsocial.com/triangle2.png") no-repeat left top;
-  background-size: 118px; }
-
-.makeitsocial-button.mis-tooltip:hover::after {
-  display: block !important; }
-
-.MiS_PopUp {
-  -webkit-transition: -webkit-transform 0.2s ease;
-  transition: -o-transform 0.2s ease;
-  /*transition: transform 0.2s ease;*/
-  -webkit-transform: scale(0.1, 0.1);
-  -ms-transform: scale(0.1, 0.1);
-      transform: scale(0.1, 0.1);
-  /*transform: scale(0.1,0.1);*/
-  box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.7); }
-
-.ui-helper-hidden-accessible {
-  display: none; }
-
-#makeitsocial-tooltip {
-  background: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  color: #BBBDC0;
-  font-weight: 400;
-  font-size: 12px;
-  width: 330px;
-  margin-left: -135px;
-  height: 200px;
-  padding: 7px 16px;
-  box-sizing: border-box;
-  position: absolute;
-  margin-bottom: 10px;
-  z-index: 19999; }
-
-#makeitsocial-tooltip:after {
-  width: 22px;
-  height: 14px;
-  position: absolute;
-  content: '';
-  background: url(https://button.makeitsocial.com/tooltip-grp.png) no-repeat;
-  background-size: 22px;
-  top: -13px;
-  left: 154px; }
-
-#makeitsocial-tooltip.mis_aleft:after {
-  left: 45px; }
-
-#makeitsocial-tooltip.mis_aright:after {
-  left: 265px; }
-
-#makeitsocial-tooltip .makeitsocial-btnclose {
-  display: block;
-  width: 12px;
-  height: 13px;
-  background: url(https://button.makeitsocial.com/tooltip-grp.png) no-repeat;
-  background-size: 22px;
-  background-position: 0 -38px;
-  float: right;
-  margin: 3px 0 0 0;
-  cursor: pointer; }
-
-#makeitsocial-tooltip, #makeitsocial-tooltip h1, #makeitsocial-tooltip p, #makeitsocial-tooltip a {
-  font-family: 'Open Sans',sans-serif !important; }
-
-#makeitsocial-tooltip h1 {
-  font-size: 20px;
-  font-weight: 300;
-  color: #6D6E70;
-  line-height: 24px;
-  letter-spacing: initial;
-  text-transform: none;
-  text-decoration: none;
-  padding: 0;
-  margin: 3px 0 0 0;
-  border: none; }
-
-#makeitsocial-tooltip p, #makeitsocial-tooltip a {
-  color: #999 !important;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  letter-spacing: initial;
-  text-decoration: none; }
-
-#makeitsocial-tooltip a {
-  text-decoration: none;
-  color: #BBBDC0 !important; }
-
-#makeitsocial-tooltip a:hover {
-  color: #F37D20 !important; }
-
-#makeitsocial-tooltip #misttip-element {
-  background: url(https://button.makeitsocial.com/invite.png) no-repeat;
-  background-size: contain;
-  height: 80px;
-  background-repeat: no-repeat;
-  width: 300px; }
-
-#makeitsocial-tooltip #misttip-graphic {
-  width: 233px;
-  margin: 0 auto 0 29px; }
-
-#makeitsocial-tooltip .misttip-circle {
-  width: 13px;
-  height: 13px;
-  border-radius: 9px;
-  float: left;
-  border: 1px solid #6D6E70;
-  padding: 0; }
-
-#makeitsocial-tooltip .misttip-circle.misttip-sel {
-  box-shadow: inset 0px 0px 0px 2px #FFF;
-  background: #6D6E70; }
-
-#makeitsocial-tooltip .misttip-line {
-  width: 94px;
-  height: 1px;
-  background: #6D6E70;
-  float: left;
-  margin-top: 6px;
-  padding: 0; }
-
-#makeitsocial-tooltip #misttip-labels {
-  width: 100%;
-  margin: 7px auto 0 auto; }
-
-#makeitsocial-tooltip .misttip-label:nth-child(2) {
-  text-align: center; }
-
-#makeitsocial-tooltip .misttip-label:nth-child(3) {
-  text-align: right; }
-
-#makeitsocial-tooltip .misttip-label {
-  float: left;
-  width: 33%;
-  color: #6D6E70;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  padding: 0;
-  margin: 0;
-  letter-spacing: initial;
-  text-decoration: none; }
-
-#makeitsocial-tooltip #makeitsocial-tooltip-button {
-  width: 100%;
-  height: 37px;
-  background: #EE8E4A;
-  display: block;
-  color: #fff !important;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 300; }
-
-#makeitsocial-tooltip #makeitsocial-tooltip-button:hover {
-  color: #fff !important;
-  background: #F37D20; }
-
-#makeitsocial-tooltip #makeitsocial-tooltip-button div {
-  vertical-align: middle;
-  display: inline-block;
-  color: #fff !important;
-  margin: 0;
-  margin-top: 7px;
-  padding: 0;
-  padding-left: 30px;
-  background: url(https://button.makeitsocial.com/tooltip-grp.png) no-repeat;
-  background-size: 22px;
-  background-position: 0 -15px;
-  font-size: 16px;
-  line-height: 21px;
-  font-weight: 300;
-  letter-spacing: initial;
-  text-decoration: none; }
-
-#makeitsocial-tooltip #misttip-info {
-  text-align: center;
-  margin: 19px 0 0 0; }
-
-/*-- Specific to Experimantal New Button --*/
-.makeitsocial-button.buttonNew, .makeitsocial-button.buttonNew.moneyback {
-  padding: 0;
-  margin: 0;
-  -ms-user-select: none;
-  -o-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  -webkit-user-select: none;
-  cursor: pointer;
-  margin: 2px;
-  vertical-align: top;
-  display: inline-block;
-  line-height: 28px;
-  /*min-width: 107px;
-max-width: 107px;
-width: 107px;*/
-  min-width: 117px;
-  max-width: 117px;
-  width: 117px;
-  min-height: 28px;
-  max-height: 28px;
-  height: 28px;
+.misToggle {
   background: none;
-  background-image: url(https://button.makeitsocial.com/makeitsocialbutton2.png);
-  background-repeat: no-repeat;
-  /*background-size: 107px;*/
-  background-size: 117px;
-  background-position: 0 0;
-  -webkit-transition-property: none;
-  transition-property: none; }
-
-.makeitsocial-button.buttonNew.buttonManage, .makeitsocial-button.buttonNew.buttonManage.moneyback {
-  min-width: 105px;
-  max-width: 105px;
-  width: 105px;
-  background-image: url(https://button.makeitsocial.com/makeitsocialbutton3.png);
-  background-size: 105px; }
-
-.makeitsocial-button.makeitsocial-small.buttonNew, .makeitsocial-button.makeitsocial-small.buttonNew.moneyback {
-  /*min-width: 89px;
-max-width: 89px;
-width: 89px;*/
-  min-width: 99px;
-  max-width: 99px;
-  width: 99px;
-  min-height: 20px;
-  max-height: 20px;
+  width: 20px;
   height: 20px;
-  background: none;
-  background-image: url(https://button.makeitsocial.com/makeitsocialbutton2.png);
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  border-radius: 10px;
+  vertical-align: middle;
+  background-image: url(https://button.makeitsocial.com/glyphsFrame-01.jpg);
+  background-size: 60px;
   background-repeat: no-repeat;
-  /*background-size: 107px;*/
-  background-size: 117px;
-  background-position: 0 -28px; }
+  background-position: -20px 0;
+  cursor: pointer;
+  z-index: 2; }
 
-.makeitsocial-button.buttonNew:hover {
-  background-position: 0 -48px; }
-
-.makeitsocial-button.makeitsocial-small.buttonNew:hover {
-  background-position: 0 -76px; }
-
-.makeitsocial-button.buttonNew:active {
-  background-position: 0 -96px; }
-
-.makeitsocial-button.makeitsocial-small.buttonNew:active {
-  background-position: 0 -124px; }
-
-.makeitsocial-span {
-  padding: 0;
-  margin: 0;
-  color: #48484b;
-  white-space: nowrap;
-  font-family: 'Open Sans',sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  line-height: 29px;
-  vertical-align: top;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-  float: none; }
-
-.makeitsocial-span.makeitsocial-light {
-  color: #FFFFFF;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65); }
-
-/*@media all and (max-width : 414px) {*/
-@media (-webkit-min-device-pixel-ratio: 1.25), (-webkit-min-device-pixel-ratio: 120), (min-resolution: 120dppx) {
-  .makeitsocial-button.buttonNew.bm {
-    min-width: 130px;
-    max-width: 130px;
-    width: 130px;
-    min-height: 40px;
-    max-height: 40px;
-    height: 40px;
-    background-image: url(https://button.makeitsocial.com/makeitsocialbuttonbig.png);
-    background-size: 130px; }
-  .makeitsocial-button.buttonNew.bm:hover {
-    background-position: 0 -40px; }
-  .makeitsocial-button.buttonNew.bm:active {
-    background-position: 0 -80px; } }
+.misToggle:hover {
+  background-position: -20px -20px; }

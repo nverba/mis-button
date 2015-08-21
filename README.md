@@ -15,7 +15,9 @@ npm install
 
 # develop with watchify auto build & live Browser-Sync reloading across local network
 
-gulp serve
+gulp serve 
+
+# Note: Visit localhost:3000/examples/buttons.html to see the demo.
 
 # develop with watchify auto build
 
