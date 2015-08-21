@@ -44,6 +44,12 @@
           transform: translateX(-50%);
   border: 1px solid #D1DBE0; }
 
+.misCover.misMin {
+  height: 36px;
+  width: 200px;
+  position: relative;
+  top: initial; }
+
 .misSpinner {
   width: 100px;
   height: 100px;
@@ -137,9 +143,27 @@
   background-image: url(https://button.makeitsocial.com/glyphsFrame-01.jpg);
   background-size: 60px;
   background-repeat: no-repeat;
-  background-position: -20px 0;
   cursor: pointer;
   z-index: 2; }
 
-.misToggle:hover {
+.misToggle.misTogMax {
+  background-position: -20px 0; }
+
+.misToggle.misTogMax:hover {
   background-position: -20px -20px; }
+
+.misToggle.misTogMin {
+  background-position: -40px 0; }
+
+.misToggle.misTogMin:hover {
+  background-position: -40px -20px; }
+
+.misOpen {
+  position: fixed;
+  overflow: hidden;
+  right: 10px;
+  bottom: 15px;
+  z-index: 2000;
+  width: 200px;
+  height: auto;
+  background-color: red; }
