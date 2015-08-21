@@ -23,7 +23,7 @@ gulp.task('build', function() {
       })
       .pipe(gulpif(!argv.development, source('mis-button.min.js'), source('mis-button.js')))
       .pipe(gulpif(!argv.development, streamify(uglify())))
-      .pipe(gulp.dest('./dist'));
+      .pipe(gulp.dest('./dist/js'));
   }
   
   // When passing the development flag, this watches the .js source for changes, and rebuilds the application when saved.

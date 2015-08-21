@@ -1,6 +1,6 @@
 {
   "name": "mis-button",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Make it Social popup launcher",
   "main": "dist/mis-button.min.js",
   "scripts": {

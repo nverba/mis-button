@@ -11,7 +11,7 @@ right: 0;
 padding: 0;
 z-index: 20000;
 }
-#MiS_PopUp {
+.MiS_PopUp {
 position: absolute;
 left: 50%;
 top: 10px;
@@ -29,14 +29,14 @@ box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.8);
 overflow-x: hidden;
 z-index: 20001;
 }
-#MiS_PopUp.misMini {
+.MiS_PopUp.misMini {
 visibility: hidden;
 opacity: 0;
 max-height: 50px;
 max-width: 318px;
 transition: visibility 0s linear 0.1s, opacity 0.1s linear, max-height 0.1s linear, max-width 0.1s linear;
 }
-#misFrame {
+.misFrame {
 background: none;
 position: absolute;
 left: 50%;
@@ -46,7 +46,7 @@ width: 400px;
 height: 36px;
 z-index: 20002;
 }
-#misFrame.misMini {
+.misFrame.misMini {
 width: 220px;
 background: #ebeff2;
 top: inherit;
@@ -59,7 +59,7 @@ border: 1px solid #d3e0e7;
 border-bottom: none;
 z-index: 99999999;
 }
-#misFrame .misButton {
+.misFrame .misButton {
 background: none;
 width: 20px;
 height: 20px;
@@ -75,62 +75,62 @@ background-position: 0 0;
 z-index: 20003;
 cursor: pointer;
 }
-#misFrame #misClose {
+.misFrame #misClose {
 display: none;
 margin-left: 25px;
 }
-#misFrame.misMini #misClose {
+.misFrame.misMini #misClose {
 display: none;
 }
-#misFrame #misClose:hover {
+.misFrame #misClose:hover {
 background-position: 0 -20px;
 }
-#misFrame #misMin {
+.misFrame #misMin {
 background-position: -20px 0;
 }
-#misFrame.misMini #misMin {
+.misFrame.misMini #misMin {
 display: none;
 }
-#misFrame #misMin:hover {
+.misFrame #misMin:hover {
 background-position: -20px -20px;
 }
-#misFrame #misMax {
+.misFrame #misMax {
 margin-left: 50px;
 background-position: -40px 0;
 display: none;
 margin: 0;
 }
-#misFrame.misMini #misMax {
+.misFrame.misMini #misMax {
 display: block;
 }
-#misFrame.misMini:hover #misMax {
+.misFrame.misMini:hover #misMax {
 background-position: -40px -20px;
 }
-#misFrame #misDragdiv {
+.misFrame #misDragdiv {
 margin: 0 auto;
 background: none;
 width: 80%;
 height: 36px;
 display: block;
 }
-#misFrame.misMini #misDragdiv {
+.misFrame.misMini #misDragdiv {
 background: url(https://button.makeitsocial.com/logo24r.png);
 background-size: 24px;
 background-repeat: no-repeat;
 background-position: center center;
 }
-#misFrame.misMini #misTitle {
+.misFrame.misMini #misTitle {
 padding: 0 0 0 33px;
 }
 
 /*-- Specific to MiS Spinner -- */
-#misFrame .misSpinner {
+.misFrame .misSpinner {
 width: 85px;
 height: 85px;
 position: relative;
 }
 
-#misFrame .misSpinner .mis-logo {
+.misFrame .misSpinner .mis-logo {
 background: transparent;
 background-image: url(https://button.makeitsocial.com/misLogo-01.png);
 width: 100%;
@@ -143,7 +143,7 @@ background-position: center center;
 background-repeat: no-repeat
 }
 
-#misFrame .misSpinner .circle1, .misSpinner .circle2 {
+.misFrame .misSpinner .circle1, .misSpinner .circle2 {
 width: 100%;
 height: 100%;
 border-radius: 200px;
@@ -156,7 +156,7 @@ left: 0;
 animation: bounce 2.0s infinite ease-in-out;
 }
 
-#misFrame .misSpinner .circle2 {
+.misFrame .misSpinner .circle2 {
 -webkit-animation-delay: -1.0s;
 animation-delay: -1.0s;
 }
@@ -175,7 +175,7 @@ transform: scale(1.0);
 -webkit-transform: scale(1.0);
 }
 }
-#misFrame .loadingText{
+.misFrame .loadingText{
 position: absolute;
 bottom: -50px;
 text-align: center;
@@ -183,7 +183,7 @@ width: 100%;
 font-weight: 300;
 }
 
-#misFrame img{
+.misFrame img{
 width: 335px;
 position: absolute;
 bottom: -160px;
@@ -192,7 +192,7 @@ max-width: 335px;
 margin-left: -167px;
 }
 
-#misFrame .mis-faq{
+.misFrame .mis-faq{
 position: absolute;
 bottom: -185px;
 left: 50%;
@@ -289,7 +289,7 @@ background-size:118px;
 .makeitsocial-button.mis-tooltip:hover::after {
 display:block !important;
 }
-#MiS_PopUp {
+.MiS_PopUp {
 -o-transition:-o-transform 0.2s ease;
 -moz-transition:-moz-transform 0.2s ease;
 -webkit-transition:-webkit-transform 0.2s ease;
