@@ -41,10 +41,21 @@
 	width: 400px;
 	height: 450px;
 	position: absolute;
-	top: 10px;
-	left: 50%;
-	transform: translateX(-50%);
+	top: 5%;
+	right: 50%;
+	transform: translateX(50%);
   border: 1px solid #D1DBE0;
+  opacity: 1;
+  transition: all 500ms ease;
+}
+
+.misMoveMin {
+  transform: translateX(0%);
+  width: 200px;
+  height: 36px;
+  top: 85%;
+  right: 5%;
+  opacity: 0;
 }
 
 .misCover.misMin {
@@ -169,10 +180,9 @@
 .misOpen {
   position: fixed;
   overflow: hidden;
-  right: 10px;
-  bottom: 15px;
+  right: 5%;
+  bottom: 5%;
   z-index: 2000;
   width: 200px;
   height: auto;
-  background-color: red;
 }

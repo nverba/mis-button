@@ -36,9 +36,9 @@ for (var i = 0; i < buttons.length; i++) {
 		container.innerHTML = popup;
 		document.body.appendChild(container);
 		
-		var loader = container.getElementsByClassName('misSpinner')[0];
-		var iframe = container.getElementsByClassName('MiS_PopUp')[0];
-		var toggle = container.getElementsByClassName('misToggle')[0];
+		let loader = container.getElementsByClassName('misSpinner')[0];
+		let iframe = container.getElementsByClassName('MiS_PopUp')[0];
+		let toggle = container.getElementsByClassName('misToggle')[0];
 		
 		iframe.onload = function() {
 			// Give 1s to let page render with product details
@@ -51,9 +51,12 @@ for (var i = 0; i < buttons.length; i++) {
 		toggle.addEventListener('click', function() {
 			
 			if (maximised) {
-				toggle.className = "misToggle misTogMin"; // Toggle button style
-				container.className = "misCover misMin";  // Toggle container style
-				misOpen.appendChild(container);						// Append to opend popups container
+				container.className = "misCover misMoveMin";
+				setTimeout(function() {
+					toggle.className = "misToggle misTogMin"; // Toggle button style
+					container.className = "misCover misMin";  // Toggle container style
+					misOpen.appendChild(container);						// Append to opend popups container
+				}, 450);	
 			} else {
 				toggle.className = "misToggle misTogMax";
 				container.className = "misCover";

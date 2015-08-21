@@ -37,12 +37,25 @@
   width: 400px;
   height: 450px;
   position: absolute;
-  top: 10px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  border: 1px solid #D1DBE0; }
+  top: 5%;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+      -ms-transform: translateX(50%);
+          transform: translateX(50%);
+  border: 1px solid #D1DBE0;
+  opacity: 1;
+  -webkit-transition: all 500ms ease;
+          transition: all 500ms ease; }
+
+.misMoveMin {
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
+  width: 200px;
+  height: 36px;
+  top: 85%;
+  right: 5%;
+  opacity: 0; }
 
 .misCover.misMin {
   height: 36px;
@@ -161,9 +174,8 @@
 .misOpen {
   position: fixed;
   overflow: hidden;
-  right: 10px;
-  bottom: 15px;
+  right: 5%;
+  bottom: 5%;
   z-index: 2000;
   width: 200px;
-  height: auto;
-  background-color: red; }
+  height: auto; }
