@@ -45,7 +45,8 @@
   border: 1px solid #D1DBE0;
   opacity: 1;
   -webkit-transition: all 500ms ease;
-          transition: all 500ms ease; }
+          transition: all 500ms ease;
+  overflow: hidden; }
 
 .misMoveMin {
   -webkit-transform: translateX(0%);
@@ -61,7 +62,13 @@
   height: 36px;
   width: 200px;
   position: relative;
-  top: initial; }
+  top: initial;
+  margin-bottom: -40px;
+  -webkit-transition: margin-bottom 1s ease;
+          transition: margin-bottom 1s ease; }
+
+.misCover.misMin.misShow {
+  margin-bottom: 0px; }
 
 .misSpinner {
   width: 100px;

@@ -15,11 +15,13 @@ var popup = `
 
 var buttons = document.getElementsByClassName("makeitsocial-button");
 
+// Create & append the container for opened, minimised popups.
 var misOpen = document.createElement('div');
 misOpen.className = "misOpen";
 document.body.appendChild(misOpen);
 
 for (var i = 0; i < buttons.length; i++) {
+	
 	let element = buttons[i];
 	let maximised = true;
 	let misOpened = false;
@@ -56,6 +58,9 @@ for (var i = 0; i < buttons.length; i++) {
 					toggle.className = "misToggle misTogMin"; // Toggle button style
 					container.className = "misCover misMin";  // Toggle container style
 					misOpen.appendChild(container);						// Append to opend popups container
+					setTimeout(function() {
+						container.className = "misCover misMin misShow";  // Toggle container style
+					}, 0);
 				}, 450);	
 			} else {
 				toggle.className = "misToggle misTogMax";

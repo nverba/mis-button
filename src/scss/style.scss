@@ -47,6 +47,7 @@
   border: 1px solid #D1DBE0;
   opacity: 1;
   transition: all 500ms ease;
+  overflow: hidden;
 }
 
 .misMoveMin {
@@ -63,6 +64,12 @@
   width: 200px;
   position: relative;
   top: initial;
+  margin-bottom: -40px;
+  transition: margin-bottom 1s ease;
+}
+
+.misCover.misMin.misShow {
+  margin-bottom: 0px;
 }
 
 .misSpinner {
