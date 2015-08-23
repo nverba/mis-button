@@ -14,6 +14,7 @@ var popup = `
 // <div class="misFrameBlock" style="position: absolute;  height: 450px; width:400px; z-index: 20004;display: none;"></div>
 
 var buttons = document.getElementsByClassName("makeitsocial-button");
+var isMobile = navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i);
 
 // Create & append the container for opened, minimised popups.
 var misOpen = document.createElement('div');
@@ -27,6 +28,11 @@ for (var i = 0; i < buttons.length; i++) {
 	let misOpened = false;
 	
 	element.addEventListener('click', function() {
+		
+		if (isMobile) {
+			window.location.href = "https://popup-sandbox.herokuapp.com#/setup?pid=" + element.getAttribute('data-pid');
+			return;
+		}
 		
 		// Open only one popup per button;
 		if (misOpened) { return; }
