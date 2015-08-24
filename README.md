@@ -45,5 +45,6 @@ if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "
 When pushing a release to master, using the following command will also sync the live gh-pages demo, which can be viewed @ [make-it-social.github.io/mis-button](http://make-it-social.github.io/mis-button)
 
 ```
+git push origin master
 git push origin master:gh-pages
 ```
