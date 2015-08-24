@@ -33,7 +33,6 @@
 		let maximise = document.createElement('button');
 		maximise.className = "misBtn";
 		maximise.innerHTML = sprite;
-		maximise.appendChild(document.createTextNode('This is my long product description'));
 		minimised.appendChild(maximise);
 		
 		let container = document.createElement('div');
@@ -77,8 +76,25 @@
 				container.className = "misCover";
 				maximise.className  = "misBtn";
 			}
+			
+			window.addEventListener("message", receiveMessage, false);
+			
+			function receiveMessage(event) {
+			
+				// This check is essential to avoid xss
+				if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "https://popup.makeitsocial.com/") { return; }
+		
+				var data = JSON.parse(event.data);
+				
+				if (data.pid === pid) {
+					maximise.appendChild(document.createTextNode(data.name));
+				}
+			}
+				
 			maximise.addEventListener('click', maximisePopup);
 			minimi.addEventListener('click', minimisePopup);
+			// used for local testing
+			// iframe.setAttribute('src', "http://127.0.0.1:8080/#/setup?pid=" + pid);   
 			iframe.setAttribute('src', "https://popup-sandbox.herokuapp.com#/setup?pid=" + pid);
 		}
 		
