@@ -225,6 +225,6 @@ button.misBtn.mimimised {
   overflow: hidden;
   right: 5%;
   bottom: 5%;
-  z-index: 2000;
+  z-index: 2050;
   width: 200px;
   height: auto; }
