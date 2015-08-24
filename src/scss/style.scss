@@ -149,7 +149,7 @@
   height: 100%;
 }
 
-.misToggle {
+.misIco {
   background: none;
   width: 20px;
   height: 20px;
@@ -161,30 +161,45 @@
   background-image: url(https://button.makeitsocial.com/glyphsFrame-01.jpg);
   background-size: 60px;
   background-repeat: no-repeat;
-
   cursor: pointer;
   z-index: 2;
 }
 
-.misToggle.misTogMax {
-  background-position: -20px 0;
+.misIco.misMin {
+  background-position: -20px 0;  
 }
 
-.misToggle.misTogMax:hover{
+.misIco.misMin:hover{
   background-position: -20px -20px;
 }
 
-.misToggle.misTogMin {
-  background-position: -40px 0;
+.misIco.max {
+  background-position: -40px 0;  
 }
 
-.misToggle.misTogMin:hover{
-  background-position: -40px -20px;
+.misIco.max:hover {
+  background-position: -40px -20px;  
 }
+
+button.misBtn.mimimised {
+  height: 36px;
+  border: 1px solid #aaa;
+}
+
+.misBtn {
+  width: 100%;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  transition: height 300ms ease;
+}
+
 
 // stash container styles
 
-.misOpen {
+.misMinimised {
   position: fixed;
   overflow: hidden;
   right: 5%;
