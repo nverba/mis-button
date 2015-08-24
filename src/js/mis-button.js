@@ -14,6 +14,8 @@
 	  <iframe class="MiS_PopUp" src="" style="display:none"></iframe>
 	`
 	
+	let sprite = `<div class="misBtnFill"><div class="misIco misMax"></div></div>`
+	
 	let buttons = document.getElementsByClassName("makeitsocial-button");
 	let isMobile = navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i);
 	
@@ -30,7 +32,8 @@
 		
 		let maximise = document.createElement('button');
 		maximise.className = "misBtn";
-		maximise.innerText = "LINK";
+		maximise.innerHTML = sprite;
+		maximise.appendChild(document.createTextNode('This is my long product description'));
 		minimised.appendChild(maximise);
 		
 		let container = document.createElement('div');

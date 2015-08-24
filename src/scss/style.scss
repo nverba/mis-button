@@ -1,4 +1,4 @@
-// @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 
 .makeitsocial-button {
   background: rgba(158,158,158,.2);
@@ -173,12 +173,41 @@
   background-position: -20px -20px;
 }
 
-.misIco.max {
-  background-position: -40px 0;  
+.misIco.misMax {
+  pointer-events: none;
+  background-position: -40px -20px;  
 }
 
-.misIco.max:hover {
-  background-position: -40px -20px;  
+.misIco.misMax:hover {
+  background-position: -40px -0px;  
+}
+
+button.misBtn {
+  width: 100%;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  transition: all 300ms ease;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #8497a0;
+  line-height: 36px;
+  padding-left: 34px;
+  padding-right: 3px;
+  white-space:nowrap; 
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-indent: 0px;
+  position: relative;
+}
+
+
+button.misBtn:hover {
+  text-indent: -50%;
 }
 
 button.misBtn.mimimised {
@@ -186,16 +215,15 @@ button.misBtn.mimimised {
   border: 1px solid #aaa;
 }
 
-.misBtn {
-  width: 100%;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  transition: height 300ms ease;
+.misBtnFill {
+  height: 34px;
+  width: 32px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  pointer-events: none;
+  background-color: #DDDDDD;
 }
-
 
 // stash container styles
 
