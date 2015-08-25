@@ -30,7 +30,6 @@
 		
 		let button = buttons[i];
 		let active = false;
-		let ismin  = false;
 		let pid = button.getAttribute('data-pid');
 		let coords = [(window.innerWidth / 2) - 200, 20];
 		let offset = [0, 0];
@@ -96,14 +95,12 @@
 				container.className = "misCover misMoveMin misAnim";
 				maximise.className  = "misBtn mimimised";
 				updatePos([document.body.offsetWidth - 300, document.body.offsetHeight - 100]);
-				ismin = true;
 			}
 			
 			function maximisePopup() {
 				container.className = "misCover misAnim";
 				maximise.className  = "misBtn";
 				updatePos(cachedPos);
-				ismin = false;
 				setTimeout(function() {
 					container.className = "misCover";
 				}, 500);
