@@ -45,22 +45,21 @@
 	width: 400px;
 	height: 485px;
 	position: absolute;
-	top: 5%;
-	right: 50%;
-	transform: translateX(50%);
   border: 1px solid #D1DBE0;
   opacity: 1;
-  transition: all 500ms ease;
   overflow: hidden;
+  pointer-events: initial;
 }
 
 .misMoveMin {
-  transform: translateX(0%);
   width: 200px;
   height: 36px;
-  top: 85%;
-  right: 5%;
+  pointer-events: none;
   opacity: 0;
+}
+
+.misAnim {
+  transition: all 500ms ease;
 }
 
 .misCover.misMin {
@@ -69,7 +68,6 @@
   position: relative;
   top: initial;
   margin-bottom: -40px;
-  transition: margin-bottom 1s ease;
 }
 
 .misCover.misMin.misShow {
@@ -151,6 +149,17 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.draghandle {
+  background: none;
+  width: 100%;
+  height: 36px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: grab;
+  z-index: 2;
 }
 
 .misIco {

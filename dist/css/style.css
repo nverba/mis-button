@@ -41,35 +41,27 @@
   width: 400px;
   height: 485px;
   position: absolute;
-  top: 5%;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-      -ms-transform: translateX(50%);
-          transform: translateX(50%);
   border: 1px solid #D1DBE0;
   opacity: 1;
-  -webkit-transition: all 500ms ease;
-          transition: all 500ms ease;
-  overflow: hidden; }
+  overflow: hidden;
+  pointer-events: initial; }
 
 .misMoveMin {
-  -webkit-transform: translateX(0%);
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
   width: 200px;
   height: 36px;
-  top: 85%;
-  right: 5%;
+  pointer-events: none;
   opacity: 0; }
+
+.misAnim {
+  -webkit-transition: all 500ms ease;
+          transition: all 500ms ease; }
 
 .misCover.misMin {
   height: 36px;
   width: 200px;
   position: relative;
   top: initial;
-  margin-bottom: -40px;
-  -webkit-transition: margin-bottom 1s ease;
-          transition: margin-bottom 1s ease; }
+  margin-bottom: -40px; }
 
 .misCover.misMin.misShow {
   margin-bottom: 0px; }
@@ -154,6 +146,17 @@
   left: 0;
   width: 100%;
   height: 100%; }
+
+.draghandle {
+  background: none;
+  width: 100%;
+  height: 36px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: -webkit-grab;
+  cursor: grab;
+  z-index: 2; }
 
 .misIco {
   background: none;

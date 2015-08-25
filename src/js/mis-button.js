@@ -9,7 +9,9 @@
 				<p class="loadingText">Loading</p>
 				<a class="mis-faq" href="https://makeitsocial.com/faq/" target="_blank">Learn more</a>
 			</div>
-			<div class="misIco misMin"></div>
+			<div class="draghandle">
+				<div class="misIco misMin"></div>
+			</div>
 		</div>
 	  <iframe class="MiS_PopUp" src="" style="display:none"></iframe>
 	`
@@ -24,11 +26,13 @@
 	minimised.className = "misMinimised";
 	document.body.appendChild(minimised); 
 	
-	for (let i = 0; i < buttons.length; i++) {
+	for (var i = 0; i < buttons.length; i++) {
 		
 		let button = buttons[i];
 		let active = false;
 		let pid = button.getAttribute('data-pid');
+		let coords = [(window.innerWidth / 2) - 200, 20];
+		let offset = [0, 0];
 		
 		let maximise = document.createElement('button');
 		maximise.className = "misBtn";
@@ -36,7 +40,25 @@
 		minimised.appendChild(maximise);
 		
 		let container = document.createElement('div');
+		container.setAttribute('draggable', 'true')
 		container.className = "misCover";
+		
+		container.addEventListener("dragend", function( event ) {
+			updatePos(coords);
+  	}, false);
+		
+		container.addEventListener("dragstart", function( event ) {
+			offset = [event.offsetX, event.offsetY];
+  	}, false);
+		
+	  document.addEventListener("dragover", function( event ) {
+			coords = [event.clientX - offset[0], event.clientY - offset[1]];
+	  }, false);
+		
+		function updatePos(c) {
+			container.style.left = c[0] + 'px';
+			container.style.top = c[1] + 'px';
+		}
 		
 		function launchPopup(e) {
 			
@@ -51,13 +73,15 @@
 				return;
 			}
 			
-			active = true;
 			container.innerHTML = popup;
 			document.body.appendChild(container);
+			updatePos(coords);
+			active = true;
 			
 			let loader = container.getElementsByClassName('misSpinner')[0];
 			let iframe = container.getElementsByClassName('MiS_PopUp')[0];
 			let minimi = container.getElementsByClassName('misMin')[0];
+			let cachedPos;
 			
 			iframe.onload = function(e) {
 				// Give 1s to let page render with product details
@@ -68,29 +92,31 @@
 			};
 			
 			function minimisePopup() {
-				container.className = "misCover misMoveMin";
+				cachedPos = [container.offsetLeft, container.offsetTop];
+				container.className = "misCover misMoveMin misAnim";
 				maximise.className  = "misBtn mimimised";
+				updatePos([document.body.offsetWidth - 300, document.body.offsetHeight - 100]);
 			}
 			
 			function maximisePopup() {
-				container.className = "misCover";
+				container.className = "misCover misAnim";
 				maximise.className  = "misBtn";
+				updatePos(cachedPos);
+				setTimeout(function() {
+					container.className = "misCover";
+				}, 500);
 			}
 			
-			window.addEventListener("message", receiveMessage, false);
-			
 			function receiveMessage(event) {
-			
 				// This check is essential to avoid xss
 				if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "https://popup.makeitsocial.com/") { return; }
-		
 				var data = JSON.parse(event.data);
-				
 				if (data.pid === pid) {
 					maximise.appendChild(document.createTextNode(data.name));
 				}
 			}
 				
+			window.addEventListener("message", receiveMessage, false);
 			maximise.addEventListener('click', maximisePopup);
 			minimi.addEventListener('click', minimisePopup);
 			// used for local testing
