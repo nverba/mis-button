@@ -30,6 +30,7 @@
 		
 		let button = buttons[i];
 		let active = false;
+		let ismin  = false;
 		let pid = button.getAttribute('data-pid');
 		let coords = [(window.innerWidth / 2) - 200, 20];
 		let offset = [0, 0];
@@ -69,13 +70,12 @@
 			
 			// Open only one popup per button;
 			if (active) { 
-				maximisePopup();
 				return;
 			}
 			
 			container.innerHTML = popup;
 			document.body.appendChild(container);
-			updatePos(coords);
+			updatePos([(window.innerWidth / 2) - 200, 20]);
 			active = true;
 			
 			let loader = container.getElementsByClassName('misSpinner')[0];
@@ -96,12 +96,14 @@
 				container.className = "misCover misMoveMin misAnim";
 				maximise.className  = "misBtn mimimised";
 				updatePos([document.body.offsetWidth - 300, document.body.offsetHeight - 100]);
+				ismin = true;
 			}
 			
 			function maximisePopup() {
 				container.className = "misCover misAnim";
 				maximise.className  = "misBtn";
 				updatePos(cachedPos);
+				ismin = false;
 				setTimeout(function() {
 					container.className = "misCover";
 				}, 500);
