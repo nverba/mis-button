@@ -158,6 +158,21 @@
   cursor: grab;
   z-index: 2; }
 
+.activeDrag .draghandle {
+  height: 100%; }
+
+.dragCanvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3000; }
+
+.dragCanvas.activeDrag {
+  pointer-events: initial; }
+
 .misIco {
   background: none;
   width: 20px;

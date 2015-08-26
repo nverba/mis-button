@@ -24,7 +24,11 @@
 	// Create & append the container for opened, minimised popups.
 	let minimised = document.createElement('div');
 	minimised.className = "misMinimised";
-	document.body.appendChild(minimised); 
+	document.body.appendChild(minimised);
+	
+	let dragcanvas = document.createElement('div');
+	dragcanvas.className = "dragCanvas";
+	document.body.appendChild(dragcanvas);
 	
 	for (var i = 0; i < buttons.length; i++) {
 		
@@ -44,10 +48,12 @@
 		container.className = "misCover";
 		
 		container.addEventListener("dragend", function( event ) {
+			dragcanvas.className = "dragCanvas";
 			updatePos(coords);
   	}, false);
 		
 		container.addEventListener("dragstart", function( event ) {
+			dragcanvas.className = "dragCanvas activeDrag";
 			offset = [event.offsetX, event.offsetY];
   	}, false);
 		
@@ -73,7 +79,7 @@
 			}
 			
 			container.innerHTML = popup;
-			document.body.appendChild(container);
+			dragcanvas.appendChild(container);
 			updatePos([(window.innerWidth / 2) - 200, 20]);
 			active = true;
 			
