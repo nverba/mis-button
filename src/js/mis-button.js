@@ -44,7 +44,8 @@
 		minimised.appendChild(maximise);
 		
 		let container = document.createElement('div');
-		container.setAttribute('draggable', 'true')
+		container.setAttribute('draggable', 'true');
+		container.setAttribute('ondragstart', "event.dataTransfer.setData('text/plain', 'This text may be dragged')"); // firefox data workaround
 		container.className = "misCover";
 		
 		container.addEventListener("dragend", function( event ) {
