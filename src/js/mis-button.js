@@ -49,6 +49,7 @@
 		container.className = "misCover";
 		
 		container.addEventListener("dragend", function( event ) {
+			console.log('dragend');
 			dragcanvas.className = "dragCanvas";
 			updatePos(coords);
   	}, false);
@@ -58,8 +59,13 @@
 			offset = [event.offsetX, event.offsetY];
   	}, false);
 		
-	  document.addEventListener("dragover", function( event ) {
+	  dragcanvas.addEventListener("dragover", function( event ) {
+			event.preventDefault();
 			coords = [event.clientX - offset[0], event.clientY - offset[1]];
+	  }, false);
+		
+	  dragcanvas.addEventListener("drop", function( event ) {
+			event.preventDefault();
 	  }, false);
 		
 		function updatePos(c) {
