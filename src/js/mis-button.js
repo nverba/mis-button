@@ -16,8 +16,7 @@
 	  <iframe class="MiS_PopUp" src="" style="display:none"></iframe>
 	`
 	
-	let sprite = `<div class="misBtnFill"><div class="misIco misMax"></div></div>`
-	
+	let sprite = `<div class="misBtnFill"><div class="misIco misMax"></div></div>`;
 	let buttons = document.getElementsByClassName("makeitsocial-button");
 	let isMobile = navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i);
 	
@@ -26,30 +25,37 @@
 	minimised.className = "misMinimised";
 	document.body.appendChild(minimised);
 	
+	// DragCanvas isolates the popups from any underlying iframes that can capture drop events, a drag event removes the { pointer-events: none } class property. 
 	let dragcanvas = document.createElement('div');
 	dragcanvas.className = "dragCanvas";
 	document.body.appendChild(dragcanvas);
 	
-	for (var i = 0; i < buttons.length; i++) {
+	function createButton(button) {
 		
-		let button = buttons[i];
 		let active = false;
 		let pid = button.getAttribute('data-pid');
 		let coords = [(window.innerWidth / 2) - 200, 20];
 		let offset = [0, 0];
+		
+		let container = document.createElement('div');
+		
+		container.innerHTML = popup;
+		container.setAttribute('draggable', 'true');
+		container.setAttribute('ondragstart', "event.dataTransfer.setData('text/plain', 'This text may be dragged')"); // firefox data workaround
+		container.className = "misCover";
+		
+		let loader = container.getElementsByClassName('misSpinner')[0];
+		let iframe = container.getElementsByClassName('MiS_PopUp')[0];
+		let minimi = container.getElementsByClassName('misMin')[0];
+		let cachedPos;
+		let isMinimised;
 		
 		let maximise = document.createElement('button');
 		maximise.className = "misBtn";
 		maximise.innerHTML = sprite;
 		minimised.appendChild(maximise);
 		
-		let container = document.createElement('div');
-		container.setAttribute('draggable', 'true');
-		container.setAttribute('ondragstart', "event.dataTransfer.setData('text/plain', 'This text may be dragged')"); // firefox data workaround
-		container.className = "misCover";
-		
 		container.addEventListener("dragend", function( event ) {
-			console.log('dragend');
 			dragcanvas.className = "dragCanvas";
 			updatePos(coords);
   	}, false);
@@ -81,19 +87,14 @@
 			}
 			
 			// Open only one popup per button;
-			if (active) { 
+			if (active) {
+				if (isMinimised) { maximisePopup(); }
 				return;
 			}
 			
-			container.innerHTML = popup;
 			dragcanvas.appendChild(container);
 			updatePos([(window.innerWidth / 2) - 200, 20]);
 			active = true;
-			
-			let loader = container.getElementsByClassName('misSpinner')[0];
-			let iframe = container.getElementsByClassName('MiS_PopUp')[0];
-			let minimi = container.getElementsByClassName('misMin')[0];
-			let cachedPos;
 			
 			iframe.onload = function(e) {
 				// Give 1s to let page render with product details
@@ -108,19 +109,21 @@
 				container.className = "misCover misMoveMin misAnim";
 				maximise.className  = "misBtn mimimised";
 				updatePos([document.body.offsetWidth - 300, document.body.offsetHeight - 100]);
+				isMinimised = true;
 			}
 			
 			function maximisePopup() {
 				container.className = "misCover misAnim";
 				maximise.className  = "misBtn";
 				updatePos(cachedPos);
+				isMinimised = false;
 				setTimeout(function() {
 					container.className = "misCover";
 				}, 500);
 			}
 			
 			function receiveMessage(event) {
-				// This check is essential to avoid xss
+				// This check is essential to avoid xss, this feature populates the maximise button text
 				if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "https://popup.makeitsocial.com/") { return; }
 				var data = JSON.parse(event.data);
 				if (data.pid === pid) {
@@ -137,6 +140,11 @@
 		}
 		
 		button.addEventListener('click', launchPopup);
+	}
+	
+	for (var i = 0; i < buttons.length; i++) {
+		
+		createButton(buttons[i]);
 		
 	}
 })()

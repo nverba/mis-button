@@ -223,7 +223,8 @@ button.misBtn {
   text-overflow: ellipsis;
   text-indent: 0px;
   position: relative;
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: #DDDDDD; }
 
 button.misBtn:hover {
   text-indent: -100%; }
