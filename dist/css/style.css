@@ -224,14 +224,14 @@ button.misBtn {
   text-indent: 0px;
   position: relative;
   cursor: pointer;
-  background-color: #DDDDDD; }
+  background-color: #ebeff2; }
 
 button.misBtn:hover {
   text-indent: -100%; }
 
 button.misBtn.mimimised {
   height: 40px;
-  border: 1px solid #aaa; }
+  border: 1px solid #D1DBE0; }
 
 .misBtnFill {
   height: 34px;
@@ -240,7 +240,7 @@ button.misBtn.mimimised {
   left: 0;
   top: 1px;
   pointer-events: none;
-  background-color: #DDDDDD; }
+  background-color: #ebeff2; }
 
 .misMinimised {
   position: fixed;
