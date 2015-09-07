@@ -1,50 +1,48 @@
-## Make it Social popup launcher
+## Dev process
 
+Steps to follow when editing source. __NOTE: Do not edit contents of the `dist` folder, as this will be overwritten by the build process, follow the instructions bellow.__
 
-#### Development
-
-```BASH 
-
-# download 
-
+#### download 
+```BASH
 git clone git@github.com:make-it-social/mis-button.git
+```
 
-# install 
-
+#### Install
+```BASH
 npm install
+```
 
-# develop with watchify auto build & live Browser-Sync reloading across local network
+#### Launch live server
+```BASH
+gulp serve --development
+```
 
-gulp serve 
+You're now set up to edit files in the `src` folder. As you make edits, changes will automatically be compiled into the dist folder, and the open web page will automatically update to reflect the new content/styles.
 
-# Note: Visit localhost:3000/examples/buttons.html to see the demo.
 
-# develop with watchify auto build
+## Saving and pushing
 
-gulp build --development
-
-# generate production file.min.jsv
-
+#### Build minified/optimised versions of files 
+```BASH
 gulp build
-
-# version bump bower & npm
-
-gulp bump # patch
-
-gulp bump --minor # minor
-
-gulp bump --major # major
-
-
-```
-Note: in order for name & pid to be recieved from the embedded iframe, the iframe origin address needs to be whitelisted.
-```
-if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "https://popup.makeitsocial.com/") { return; }
 ```
 
-When pushing a release to master, using the following command will also sync the live gh-pages demo, which can be viewed @ [make-it-social.github.io/mis-button](http://make-it-social.github.io/mis-button)
-
+#### Commit files to GIT
+```BASH
+git add --all 
+git commit -m "<My informative commit message>"
 ```
+
+#### Version bump bower & npm, !!! always do this just befor a push !!!, select only one option based on the level of bump.
+```BASH
+gulp bump # default is patch
+
+gulp bump --minor
+
+gulp bump --major
+```
+
+#### Push files back to origin
+```BASH
 git push origin master
-git push origin master:gh-pages
 ```
