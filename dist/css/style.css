@@ -163,15 +163,15 @@
 
 .dragCanvas {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 0;
+  height: 0;
   top: 0;
   left: 0;
-  pointer-events: none;
   z-index: 3000; }
 
 .dragCanvas.activeDrag {
-  pointer-events: initial; }
+  width: 100%;
+  height: 100%; }
 
 .misIco {
   background: none;
@@ -223,14 +223,15 @@ button.misBtn {
   text-overflow: ellipsis;
   text-indent: 0px;
   position: relative;
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: #ebeff2; }
 
 button.misBtn:hover {
   text-indent: -100%; }
 
 button.misBtn.mimimised {
   height: 40px;
-  border: 1px solid #aaa; }
+  border: 1px solid #D1DBE0; }
 
 .misBtnFill {
   height: 34px;
@@ -239,7 +240,7 @@ button.misBtn.mimimised {
   left: 0;
   top: 1px;
   pointer-events: none;
-  background-color: #DDDDDD; }
+  background-color: #ebeff2; }
 
 .misMinimised {
   position: fixed;
