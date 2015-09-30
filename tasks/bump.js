@@ -2,13 +2,17 @@ var gulp   = require('gulp');
 var bump   = require('gulp-bump');
 var argv   = require('yargs').argv;
 
-// Update bower & npm at once: 
-
 gulp.task('bump', function(){
   
-  var level = argv.major ? 'major' : argv.minor ? 'minor' : 'patch';
+  var level;
+  if (argv.major) { level = 'major' }
+  if (argv.minor) { level = 'minor' }
+  if (argv.patch) { level = 'patch' }
   
-  gulp.src(['./bower.json', './package.json'])
-  .pipe(bump({ type: level }))
-  .pipe(gulp.dest('./'));
+  if (level) {
+    gulp.src(['./package.json'])
+      .pipe(bump({ type: level }))
+      .pipe(gulp.dest('./'));
+  }
+  
 });

@@ -29,11 +29,11 @@ gulp build
 
 # version bump bower & npm
 
-gulp bump # patch
+gulp bump --patch
 
-gulp bump --minor # minor
+gulp bump --minor
 
-gulp bump --major # major
+gulp bump --major
 
 
 ```
