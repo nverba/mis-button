@@ -159,6 +159,4 @@
 		button.addEventListener('click', launchPopup);
 	}
 	
-	MISbtn.register();
-	
 })()
