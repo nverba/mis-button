@@ -7,7 +7,6 @@
   border-radius: 2px;
   position: relative;
   height: 28px;
-  padding: 0 8px;
   display: inline-block;
   overflow: hidden;
   transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
@@ -17,8 +16,8 @@
   text-align: center;
   line-height: 28px;
   vertical-align: middle;
-  min-width:130px;
-  width: 130px;
+  min-width:117px;
+  width: 117px;
   background-image: url(https://makeitsocial.com/media/button/makeitsocialbutton2.png);
   background-size: 117px;
   background-position: 0 0;
