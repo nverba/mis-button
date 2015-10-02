@@ -1,5 +1,7 @@
+/* global MISbtn */
+
 (function() { 'use strict';
-	
+
 	let popup = `
 		<div class="misFrame">
 			<div class="misSpinner">
@@ -29,6 +31,21 @@
 	let dragcanvas = document.createElement('div');
 	dragcanvas.className = "dragCanvas";
 	document.body.appendChild(dragcanvas);
+	
+	window.MISbtn = {
+		register: function() {
+			
+			let buttons = document.getElementsByClassName("makeitsocial-button");
+			for (var i = 0; i < buttons.length; i++) {
+				var button = buttons[i];
+				if (button.getAttribute('MisBtnReg')) { return; }
+				console.log('register listener', button);
+				createButton(buttons[i]);
+				button.setAttribute('MisBtnReg', true)
+			}
+		},
+		url: 'https://popup.makeitsocial.com/'
+	};
 	
 	function createButton(button) {
 		
@@ -82,7 +99,7 @@
 		function launchPopup(e) {
 			
 			if (isMobile) {
-				window.location.href = "https://popup-sandbox.herokuapp.com#/setup?pid=" + pid;
+				window.location.href = `${ MISbtn.url }#/setup?pid=${ pid }`;  
 				return;
 			}
 			
@@ -108,7 +125,7 @@
 				cachedPos = [container.offsetLeft, container.offsetTop];
 				container.className = "misCover misMoveMin misAnim";
 				maximise.className  = "misBtn mimimised";
-				updatePos([document.body.offsetWidth - 300, document.body.offsetHeight - 100]);
+				updatePos([document.body.offsetWidth - 300, window.innerHeight - 100]);
 				isMinimised = true;
 			}
 			
@@ -124,7 +141,7 @@
 			
 			function receiveMessage(event) {
 				// This check is essential to avoid xss, this feature populates the maximise button text
-				if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "https://popup.makeitsocial.com/") { return; }
+				if (event.origin !== "https://popup-sandbox.herokuapp.com" && event.origin !== "https://popup.makeitsocial.com") { return; }
 				var data = JSON.parse(event.data);
 				if (data.pid === pid) {
 					maximise.appendChild(document.createTextNode(data.name));
@@ -136,15 +153,12 @@
 			minimi.addEventListener('click', minimisePopup);
 			// used for local testing
 			// iframe.setAttribute('src', "http://127.0.0.1:8080/#/setup?pid=" + pid);   
-			iframe.setAttribute('src', "https://popup-sandbox.herokuapp.com#/setup?pid=" + pid);
+			iframe.setAttribute('src', `${ MISbtn.url }#/setup?pid=${ pid }`);
 		}
 		
 		button.addEventListener('click', launchPopup);
 	}
 	
-	for (var i = 0; i < buttons.length; i++) {
-		
-		createButton(buttons[i]);
-		
-	}
+	MISbtn.register();
+	
 })()
