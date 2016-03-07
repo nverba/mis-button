@@ -4,18 +4,11 @@
 
 	let popup = `
 		<div class="misFrame">
-			<div class="misSpinner">
-				<div class="circle1"></div>
-				<div class="circle2"></div>
-				<div class="mis-logo"></div>
-				<p class="loadingText">Loading</p>
-				<a class="mis-faq" href="https://makeitsocial.com/faq/" target="_blank">Learn more</a>
-			</div>
 			<div class="draghandle">
 				<div class="misIco misMin"></div>
 			</div>
 		</div>
-	  <iframe class="MiS_PopUp" src="" style="display:none"></iframe>
+	  <iframe class="MiS_PopUp" src=""></iframe>
 	`
 	
 	let sprite = `<div class="misBtnFill"><div class="misIco misMax"></div></div>`;
@@ -113,13 +106,13 @@
 			updatePos([(window.innerWidth / 2) - 200, 20]);
 			active = true;
 			
-			iframe.onload = function(e) {
-				// Give 1s to let page render with product details
-				setTimeout(function() {
-					loader.style.display = "none";
-					iframe.style.display = "block";
-				}, 1000);
-			};
+			// iframe.onload = function(e) {
+			// 	// Give 1s to let page render with product details
+			// 	setTimeout(function() {
+			// 		loader.style.display = "none";
+			// 		iframe.style.display = "block";
+			// 	}, 1000);
+			// };
 			
 			function minimisePopup() {
 				cachedPos = [container.offsetLeft, container.offsetTop];
