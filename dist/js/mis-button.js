@@ -6,7 +6,7 @@
 (function () {
 	'use strict';
 
-	var popup = '\n\t\t<div class="misFrame">\n\t\t\t<div class="misSpinner">\n\t\t\t\t<div class="circle1"></div>\n\t\t\t\t<div class="circle2"></div>\n\t\t\t\t<div class="mis-logo"></div>\n\t\t\t\t<p class="loadingText">Loading</p>\n\t\t\t\t<a class="mis-faq" href="https://makeitsocial.com/faq/" target="_blank">Learn more</a>\n\t\t\t</div>\n\t\t\t<div class="draghandle">\n\t\t\t\t<div class="misIco misMin"></div>\n\t\t\t</div>\n\t\t</div>\n\t  <iframe class="MiS_PopUp" src="" style="display:none"></iframe>\n\t';
+	var popup = '<div class="draghandle">\n\t\t\t\t<div class="misIco misMin"></div>\n\t\t\t</div>\n\t\t</div>\n\t  <iframe class="MiS_PopUp" src="" style="display:none"></iframe>\n\t';
 
 	var sprite = '<div class="misBtnFill"><div class="misIco misMax"></div></div>';
 	var buttons = document.getElementsByClassName("makeitsocial-button");
