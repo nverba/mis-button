@@ -2,6 +2,16 @@
 
 (function() { 'use strict';
 
+
+  document.cookie = "setCookie=true,path=/;domain=components.makeitsocial.com";
+  function testCookie() {
+    document.cookie="testcookie";
+    return document.cookie.indexOf("testcookie") != -1;
+  }
+  alert('Button cookie set - ' + testCookie());
+  console.log('Setting button session cookie');
+
+
 	let popup = `
 		<div class="misFrame">
 			<div class="draghandle">
