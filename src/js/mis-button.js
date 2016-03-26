@@ -13,7 +13,7 @@
 	
 	let sprite = `<div class="misBtnFill"><div class="misIco misMax"></div></div>`;
 	let buttons = document.getElementsByClassName("makeitsocial-button");
-	let isMobile = navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i);
+	let isMobile = false // navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i);
 	
 	// Create & append the container for opened, minimised popups.
 	let minimised = document.createElement('div');

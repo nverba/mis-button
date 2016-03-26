@@ -38,7 +38,7 @@
   z-index: 2000;
   background-color: #fff;
   width: 400px;
-  height: 485px;
+  height: 550px;
   position: absolute;
   border: 1px solid #D1DBE0;
   opacity: 1;
@@ -71,7 +71,6 @@
   top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
   text-align: center; }
@@ -103,8 +102,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-animation: bounce 2s infinite ease-in-out;
-          animation: bounce 2s infinite ease-in-out; }
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+          animation: bounce 2.0s infinite ease-in-out; }
 
 .circle2 {
   -webkit-animation-delay: -1.0s;
@@ -148,12 +147,11 @@
 
 .draghandle {
   background: none;
-  width: 85%;
+  width: 100%;
   height: 36px;
   position: absolute;
   top: 0px;
   left: 0px;
-  cursor: -webkit-grab;
   cursor: grab;
   z-index: 2; }
 
@@ -198,7 +196,7 @@
   background-position: -40px -20px; }
 
 .misIco.misMax:hover {
-  background-position: -40px 0px; }
+  background-position: -40px -0px; }
 
 button.misBtn {
   width: 100%;
